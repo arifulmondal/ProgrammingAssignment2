@@ -1,14 +1,19 @@
-## Program Assignment 2
+## Program Assignment 2: Caching the Inverse of a Matrix
 ## rprog-006 - Coursera
 ## Author: Ariful Mondal
 ## August 2014
-##-------------------------------------------------------
+##---------------------------------------------------------------------
+##Motivation:
+##Caching matrix inversion coputation because Matrix inversion is usually a costly 
+## computation and their may be some benefit to caching the inverse of a matrix 
+##rather than compute it repeatedly
+##---------------------------------------------------------------------
+## Program Name: cachematrix.R
+## Required: makeCacheMatrix & cacheSolve
+## Assumptions: This program assumes all matrices invertible
+##---------------------------------------------------------------------
 
-## cachematrix.R
-## 
-## functions do
-
-## Write a short comment describing this function
+## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
         
@@ -27,7 +32,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+##cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix
+##above. If the inverse has already been calculated (and the matrix has not changed), then the
+##cachesolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
